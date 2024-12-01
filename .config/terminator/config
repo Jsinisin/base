@@ -1,0 +1,53 @@
+[global_config]
+  ask_before_closing = never
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.0
+    background_type = image
+    background_image = /home/user/Pictures/Wallpapers/background.png
+    cursor_shape = underline
+    font = JetBrains Mono Regular 10
+    foreground_color = "#CBC2DD"
+    show_titlebar = False
+    scrollbar_position = hidden
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+  [[Main]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:0
+      maximised = True
+      fullscreen = False
+      size = 2432, 1440
+      title = /usr/bin/zsh
+      last_active_term = b8e12ba9-1ae8-4d12-93a6-3aa4a72911b1
+      last_active_window = True
+    [[[child1]]]
+      type = HPaned
+      parent = child0
+      order = 0
+      position = 1214
+      ratio = 0.5
+    [[[terminal2]]]
+      type = Terminal
+      parent = child1
+      order = 0
+      profile = default
+      uuid = b8e12ba9-1ae8-4d12-93a6-3aa4a72911b1
+    [[[terminal3]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = 94613394-f8cc-45d0-9847-05a143fa66fa
+[plugins]

@@ -1,0 +1,45 @@
+{
+
+	// General Settings
+	
+	// Position TOP
+	"layer": "top",
+	"margin-top": 3,
+	"margin-bottom": 0,
+	"width": 2550,
+	"height": 16,
+	"output": "eDP-1",
+
+	// Position BOTTOM
+	// "position": "bottom",
+	// "margin-top": 0,
+	// "margin-bottom": 14,
+
+	"layer": "top",
+	"margin-left": 0,
+	"margin-right": 0,
+	"spacing": 0,
+
+	// Load Modules
+	"include": ["~/.config/hypr/hyprmodules.json"],
+	
+	// Modules Left
+	"modules-left": [
+                "hyprland/workspaces",
+		"tray"
+	],
+
+	// Modules Center
+	"modules-center": [
+		"clock"
+	],
+
+	// Modules Right
+	"modules-right": [
+		"backlight",
+		"pulseaudio",
+		"network",
+		"battery"
+		]
+}
+

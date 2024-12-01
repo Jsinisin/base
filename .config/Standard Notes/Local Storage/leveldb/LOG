@@ -1,0 +1,29 @@
+2024/12/01-11:44:47.114 269d Reusing MANIFEST /home/user/.config/Standard Notes/Local Storage/leveldb/MANIFEST-000001
+2024/12/01-11:44:47.119 269d Recovering log #7
+2024/12/01-11:44:47.119 269d Reusing old log /home/user/.config/Standard Notes/Local Storage/leveldb/000007.log 
+2024/12/01-11:56:47.646 269f Level-0 table #10: started
+2024/12/01-11:56:47.654 269f Level-0 table #10: 63945 bytes OK
+2024/12/01-11:56:47.656 269f Delete type=0 #7
+2024/12/01-12:11:47.634 269f Level-0 table #12: started
+2024/12/01-12:11:47.641 269f Level-0 table #12: 63946 bytes OK
+2024/12/01-12:11:47.644 269f Delete type=0 #9
+2024/12/01-12:26:47.660 269d Level-0 table #14: started
+2024/12/01-12:26:47.668 269d Level-0 table #14: 63959 bytes OK
+2024/12/01-12:26:47.670 269d Delete type=0 #11
+2024/12/01-12:26:47.670 269d Compacting 4@0 + 0@1 files
+2024/12/01-12:26:47.672 269d Generated table #15@0: 2 keys, 4343 bytes
+2024/12/01-12:26:47.672 269d Compacted 4@0 + 0@1 files => 4343 bytes
+2024/12/01-12:26:47.673 269d compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/12/01-12:26:47.673 269d Delete type=2 #7
+2024/12/01-12:26:47.673 269d Delete type=2 #10
+2024/12/01-12:26:47.673 269d Delete type=2 #12
+2024/12/01-12:26:47.674 269d Delete type=2 #14
+2024/12/01-12:41:47.659 269f Level-0 table #17: started
+2024/12/01-12:41:47.667 269f Level-0 table #17: 63951 bytes OK
+2024/12/01-12:41:47.669 269f Delete type=0 #13
+2024/12/01-12:56:47.650 269d Level-0 table #19: started
+2024/12/01-12:56:47.658 269d Level-0 table #19: 63965 bytes OK
+2024/12/01-12:56:47.660 269d Delete type=0 #16
+2024/12/01-13:11:47.660 269f Level-0 table #21: started
+2024/12/01-13:11:47.668 269f Level-0 table #21: 63955 bytes OK
+2024/12/01-13:11:47.671 269f Delete type=0 #18

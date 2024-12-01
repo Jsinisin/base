@@ -1,0 +1,190 @@
+
+* {
+    font: "JetBrains Mono 16";
+    red:                         rgba ( 220, 50, 47, 100 % );
+    selected-active-foreground:  var(background);
+    lightfg:                     rgba ( 88, 104, 117, 100 % );
+    separatorcolor:              var(foreground);
+    urgent-foreground:           var(red);
+    alternate-urgent-background: var(lightbg);
+    lightbg:                     rgba ( 238, 232, 213, 100 % );
+    background-color:            transparent;
+    border-color:                var(foreground);
+    normal-background:           var(background);
+    selected-urgent-background:  var(red);
+    alternate-active-background: var(lightbg);
+    spacing:                     2;
+    blue:                        rgba ( 38, 139, 210, 100 % );
+    alternate-normal-foreground: var(foreground);
+    urgent-background:           var(background);
+    selected-normal-foreground:  var(lightbg);
+    active-foreground:           var(blue);
+    background:                  rgba ( 253, 246, 227, 100 % );
+    selected-active-background:  var(blue);
+    active-background:           var(background);
+    selected-normal-background:  var(lightfg);
+    alternate-normal-background: var(lightbg);
+    foreground:                  rgba ( 0, 43, 54, 100 % );
+    selected-urgent-foreground:  var(background);
+    normal-foreground:           var(foreground);
+    alternate-urgent-foreground: var(red);
+    alternate-active-foreground: var(blue);
+}
+element {
+    cursor:           pointer;
+    text-color:       rgba ( 125,  64, 143, 100 % );
+    padding:          4px ;
+    margin:           0;
+    background-color: transparent;
+    border:           0;
+    horizontal-align: 0.50;
+    spacing:          0px ;
+}
+element normal.normal {
+    background-color: rgba ( 13, 17, 23, 80 % );
+    text-color:       rgba ( 125,  64, 143, 100 % );
+}
+element normal.urgent {
+    background-color: var(urgent-background);
+    text-color:       var(urgent-foreground);
+}
+element normal.active {
+    background-color: var(active-background);
+    text-color:       var(active-foreground);
+}
+element selected.normal {
+    border:           3px ;
+    background-color: #130217;
+    border-color:     rgba ( 125,  64, 143, 100 % );
+    text-color:       rgba ( 125,  64, 143, 100 % );
+    border-radius:    15px ;
+}
+element selected.urgent {
+    background-color: var(selected-urgent-background);
+    text-color:       var(selected-urgent-foreground);
+}
+element selected.active {
+    background-color: var(selected-active-background);
+    text-color:       var(selected-active-foreground);
+}
+element alternate.normal {
+    background-color: rgba ( 13, 17, 23, 80 % );
+    text-color:       rgba ( 125,  64, 143, 100 % );
+}
+element alternate.urgent {
+    background-color: var(alternate-urgent-background);
+    text-color:       var(alternate-urgent-foreground);
+}
+element alternate.active {
+    background-color: var(alternate-active-background);
+    text-color:       var(alternate-active-foreground);
+}
+element-text {
+    horizontal-align: 0.50;
+    background-color: transparent;
+    cursor:           inherit;
+    highlight:        inherit;
+    vertical-align:   0.50;
+    text-color:       inherit;
+}
+element-icon {
+    background-color: transparent;
+    size:             1.0000em ;
+    cursor:           inherit;
+    text-color:       inherit;
+}
+window {
+    padding:          780px ;
+    background-color: rgba ( 13, 17, 23, 80 % );
+    width:            2560px ;
+    transparency:     "real";
+    border-color:     rgba ( 13, 17, 23, 80 % );
+    border:           1;
+    border-radius:    10px ;
+}
+mainbox {
+    padding:          0;
+    horizontal-align: 0.50;
+    border:           0;
+    children:         [ "inputbar","listview" ];
+}
+message {
+    padding:      1px ;
+    border-color: var(separatorcolor);
+}
+textbox {
+    text-color: var(foreground);
+}
+listview {
+    fixed-height: true;
+    fixed-width: false;
+    padding:      2px 0px 0px ;
+    scrollbar:    false;
+    cycle:        false;
+    lines:        1;
+    border-color: var(separatorcolor);
+    columns:      1;
+    spacing:      0px ;
+    require-input: false;
+}
+scrollbar {
+    width:        4px ;
+    padding:      0;
+    handle-width: 8px ;
+    border:       0;
+    handle-color: var(normal-foreground);
+}
+sidebar {
+    border-color: var(separatorcolor);
+}
+button {
+    cursor:     pointer;
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+button selected {
+    background-color: var(selected-normal-background);
+    text-color:       var(selected-normal-foreground);
+}
+num-filtered-rows {
+    expand:     false;
+    text-color: Gray;
+}
+num-rows {
+    expand:     false;
+    text-color: Gray;
+}
+textbox-num-sep {
+    expand:     false;
+    str:        "/";
+    text-color: Gray;
+}
+inputbar {
+    padding:          1px ;
+    horizontal-align: 0.50;
+    spacing:          8px ;
+    text-color:       var(normal-foreground);
+    children:         [ "prompt","entry" ];
+}
+case-indicator {
+    spacing:    0;
+    text-color: var(normal-foreground);
+}
+entry {
+    horizontal-align:  0.50;
+    text-color:        rgba ( 125,  64, 143, 100 % );
+    cursor:            text;
+    spacing:           0;
+    placeholder-color: rgba ( 136, 136, 136, 100 % );
+    placeholder:       "";
+}
+prompt {
+    spacing:    0;
+    text-color: rgba ( 125,  64, 143, 100 % );
+}
+textbox-prompt-colon {
+    margin:     0px 0.3000em 0.0000em 0.0000em ;
+    expand:     false;
+    str:        ":";
+    text-color: inherit;
+}

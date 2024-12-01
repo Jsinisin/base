@@ -1,0 +1,238 @@
+mkfs.vfat -F 32 /dev/nvme0n1p1
+mkfs.btrfs /dev/nvme0n1p2
+
+mount -o noatime,compress=zstd,space_cache=v2 /dev/nvme0n1p2 /mnt
+
+btrfs su cr /mnt/@, snapshots
+
+umount /mnt
+
+mount -o noatime,compress=zstd,space_cache=v2,subvol=@ /dev/nvme0n1p2 /mnt
+mkdir -p /mnt/{boot,home,.snapshots}
+mount -o noatime,compress=zstd,space_cache=v2,subvol=@snapshots /dev/nvme0n1p2 /mnt/.snapshots
+mount /dev/nvme0n1p1 /mnt/boot
+
+PACSTRAP:
+amd-ucode
+base
+base-devel
+linux
+linux-firmware
+linux-headers
+vim
+sudo
+vulkan-tools
+vulkan-radeon
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+
+--------------------
+arch-chroot /mnt
+
+passwd
+useradd -mG wheel user
+passwd user
+EDITOR=vim visudo
+
+ln -sf /usr/share/zoneinfo/America/Regina /etc/localtime
+hwclock --systohc
+
+vim /etc/locale.gen
+
+locale-gen
+
+vim /etc/locale.conf - LANG=en_CA.UTF-8
+
+vim /etc/hostname
+[comp name here]
+
+vim /etc/hosts
+127.0.0.1    localhost
+::1          localhost
+127.0.1.1    [comp name here].localdomain    [comp name here]
+
+Install:
+blueman
+efibootmgr
+git
+grub
+fastfetch
+fuse2
+networkmanager
+network-manager-applet
+otf-font-awesome
+snapper
+terminus-font
+tlp
+tlp-rdw
+ttf-jetbrains-mono
+ttf-font-awesome
+wget
+zsh
+
+vim /etc/mkinitcpio.conf
+MODULES=(zram)
+
+mkinitcpio -p linux
+
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+systemctl enable NetworkManager
+systemctl enable NetworkManager-dispatcher.service
+systemctl enable bluetooth.service
+systemctl mask systemd-rfkill.service systemd-rfkill.socket
+systemctl enable tlp.service
+
+exit
+
+umount -lR /mnt
+
+sudo shutdown now
+
+
+--------------------
+sudo nmcli device wifi connect [wifi ssid] password [wifi password]
+
+git clone https://github.com/Jsinisin/.backup
+
+sudo chmod +x audio.sh
+sudo chmod +x joplin.sh
+sudo chmod +x btrfs.sh
+
+sudo modprobe zram
+sudo bash -c 'echo "zstd" > /sys/block/zram0/comp_algorithm'
+sudo bash -c 'echo "8G" > /sys/block/zram0/disksize'
+mkswap --label zram0 /dev/zram0
+swapon --priority 100 /dev/zram0
+
+sudo vim /etc/modules-load.d/zram.conf
+
+options zram num_devices=1
+
+sudo vim /etc/udev/rules.d/99-zram.rules
+
+ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="zstd", ATTR{disksize}="8G", RUN="/usr/bin/mkswap -U clear /dev/%k", TAG+="systemd"
+
+sudo vim /etc/fstab
+
+/dev/zram0 none swap defaults,pri=100 0 0
+
+sudo mv /home/user/backup/.zshrc /home/user/
+sudo mkdir .config
+sudo chown -R user:user /home/user/.config
+sudo chown -R user:user /home/user/base/.config/*
+sudo mv /home/user/backup/.config/fastfetch /home/user/.config/
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+
+chsh
+
+sudo mkinitcpio -p linux
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+sudo reboot now
+
+--------------------
+BTRFS/Snapper Config
+--------------------
+
+btrfs.sh
+
+sudo vim /etc/snapper/configs/root
+Add user
+min age - 1800
+4 hourly
+7 daily
+0 rest
+
+btrfs property set -ts [/path/to/snapshot] ro false
+
+sudo systemctl enable snapper-timeline.timer
+sudo systemctl enable snapper-cleanup.timer
+
+timedatectl set-ntp true
+timedatectl set-timezone America/Regina
+
+vim /etc/vconsole.conf
+addline - FONT=ter-120b
+
+https://aur.archlinux.org/paru-git.git
+
+cd paru/
+makepkg -si
+
+
+acpica
+audacity
+bleachbit
+brightnessctl
+btop
+cliphist
+dunst
+ffmpeg
+file-roller
+foot
+gimp
+grim
+gvfs
+hyprcursor
+hyprland
+hyprlang
+hyprpaper
+kdenlive
+kvantum
+nwg-look
+pavucontrol
+pipewire
+pipewire-alsa
+pipewire-pulse
+polkit-gnome
+polkit-kde-agent
+qt6ct
+qt6-wayland
+seahorse
+slurp
+swappy
+terminator
+thunar
+thunar-archive-plugin
+thunar-volman
+vivaldi
+waybar
+wf-recorder
+wireplumber
+wlroots
+
+
+---------------------
+PARU
+---------------------
+hyprpicker
+librewolf-bin
+standardnotes-desktop
+network-manager-openvpn
+qimgv-qt6-kde-git
+snapper-gui
+rofi-wayland
+visual-studio-code-bin
+wlogout
+vmware (4)
+snap-pac-grub
+
+joplin.sh
+
+tar -xzf (Setup/.Local)
+unzip -q
+
+audio.sh
+
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+Sudo reboot now
+
+rm /home/user/Code/User/workspaceStorage/*
+chown root /home/user/Code/User/workspaceStorage

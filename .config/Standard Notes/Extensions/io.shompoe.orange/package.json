@@ -1,0 +1,26 @@
+{
+  "name": "sn-orange",
+  "version": "5.1",
+  "main": "index.css",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-newer": "^1.2.0",
+    "grunt-contrib-sass": "^1.0.0"
+  },
+  "sn": {
+    "main": "index.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shompoe/sn-orange.git"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "grunt"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
