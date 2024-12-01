@@ -1,5 +1,10 @@
 {
     "workbench.colorTheme": "Material Theme Ocean High Contrast",
     "editor.fontFamily": "'Jetbrains mono', 'monospace', monospace",
-    "editor.fontWeight": "normal"
+    "editor.fontWeight": "normal",
+    "workbench.colorCustomizations": {
+        "editorGroupHeader.tabsBackground": "#090b10",
+        "tab.inactiveBackground": "#090b10",
+        "tab.activeBackground": "#090b10",
+    }
 }
