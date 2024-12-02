@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../usr"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}

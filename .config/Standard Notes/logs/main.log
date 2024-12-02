@@ -85,3 +85,9 @@ Latest: 5.1 | Installed: 5.1
 [2024-12-01 15:01:34.342] [info]  PackageManager[Info]: Checking for update for Tangerine
 Latest: 5.1 | Installed: 5.1
 [2024-12-01 15:01:34.792] [info]  Update for version 3.195.13 is not available (latest version: 3.195.13, downgrade is disallowed).
+[2024-12-01 20:31:16.963] [info]  Checking for update
+[2024-12-01 20:31:17.464] [info]  Checking for update (already in progress)
+[2024-12-01 20:31:17.703] [info]  PackageManager[Info]: received sync event for: Tangerine (5.1) (deleted: false)
+[2024-12-01 20:31:17.743] [info]  Update for version 3.195.13 is not available (latest version: 3.195.13, downgrade is disallowed).
+[2024-12-01 20:31:17.974] [info]  PackageManager[Info]: Checking for update for Tangerine
+Latest: 5.1 | Installed: 5.1
