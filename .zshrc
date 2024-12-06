@@ -36,7 +36,6 @@ alias ll="ls -la"
 alias ls="ls -a"
 alias untar="tar -xvzf"  # -C for untar to directory
 alias untarall="tar -xvzf *.tar.gz"
-alias bluetooth="sudo systemctl start bluetooth.service && blueman-applet"
 
 # Trash-CLi
 alias trash="trash-put"
