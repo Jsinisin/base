@@ -67,6 +67,9 @@ ttf-font-awesome
 wget
 zsh
 
+vim /etc/vconsole.conf
+addline - FONT=ter-120b
+
 vim /etc/mkinitcpio.conf
 MODULES=(zram)
 
@@ -151,9 +154,6 @@ sudo systemctl enable snapper-cleanup.timer
 
 timedatectl set-ntp true
 timedatectl set-timezone America/Regina
-
-vim /etc/vconsole.conf
-addline - FONT=ter-120b
 
 https://aur.archlinux.org/paru-git.git
 
