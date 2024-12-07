@@ -14,15 +14,13 @@ mount /dev/nvme0n1p1 /mnt/boot
 
 PACSTRAP:
 amd-ucode
+
 base
 base-devel
 linux
 linux-firmware
-linux-headers
 vim
 sudo
-vulkan-tools
-vulkan-radeon
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
@@ -58,7 +56,6 @@ efibootmgr
 git
 grub
 fastfetch
-fuse2
 networkmanager
 network-manager-applet
 otf-font-awesome
@@ -66,7 +63,6 @@ snapper
 terminus-font
 tlp
 tlp-rdw
-ttf-jetbrains-mono
 ttf-font-awesome
 wget
 zsh
@@ -82,7 +78,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable NetworkManager
 systemctl enable NetworkManager-dispatcher.service
-systemctl enable bluetooth.service
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
 systemctl enable tlp.service
 
