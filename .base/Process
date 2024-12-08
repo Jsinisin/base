@@ -31,7 +31,11 @@ arch-chroot /mnt
 passwd
 useradd -mG wheel user
 passwd user
+
 EDITOR=vim visudo
+
+user ALL=NOPASSWD: /usr/bin/systemctl start bluetooth.service
+user ALL=NOPASSWD: /usr/bin/systemctl stop bluetooth.service
 
 ln -sf /usr/share/zoneinfo/America/Regina /etc/localtime
 hwclock --systohc
