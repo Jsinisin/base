@@ -166,7 +166,6 @@ makepkg -si
 
 
 acpica
-audacity
 bleachbit
 brightnessctl
 btop
@@ -182,7 +181,6 @@ hyprcursor
 hyprland
 hyprlang
 hyprpaper
-kdenlive
 kvantum
 nwg-look
 pavucontrol
@@ -221,8 +219,6 @@ visual-studio-code-bin
 wlogout
 vmware (4)
 snap-pac-grub
-
-joplin.sh
 
 tar -xzf (Setup/.Local)
 unzip -q
