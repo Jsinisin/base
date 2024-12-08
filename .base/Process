@@ -217,7 +217,6 @@ snapper-gui
 rofi-wayland
 visual-studio-code-bin
 wlogout
-vmware (4)
 snap-pac-grub
 
 tar -xzf (Setup/.Local)
